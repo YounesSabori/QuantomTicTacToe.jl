@@ -1,0 +1,19 @@
+using Markdown
+
+md"""
+Welcome to our game, today you will play the **Quantum** version of tic tac toe.
+
+If you don't know how to play it, look at the instructions.
+
+HAVE FUN!!
+
+
+a. single player
+
+
+b. Multiplayer
+
+
+c. Instructions
+
+"""

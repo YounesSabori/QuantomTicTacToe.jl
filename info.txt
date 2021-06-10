@@ -1,0 +1,46 @@
+using Markdown
+println("INFO")
+println("")
+println("Quantum tic tac toe is the quantum version of tic tac toe. So you can make 2 moves at the time. Thus each move will be a quantum move.")
+println("")
+println("When you make a cirkel, that occurs when you can follow a pad made out of connected squares that leads to the square where you startes your pad, you will")
+println("")
+println("start the reaction that will convert your quantum moves in real move. Each square will only take 1 real move, the others will be pushed to their corresponding square")
+println("")
+println("where they will take their real form. This will happend ad random like real quantum mechanics.")
+println("")
+
+function getc1()
+    ret = ccall(:jl_tty_set_mode, Int32, (Ptr{Cvoid},Int32), stdin.handle, true)
+    ret == 0 || error("unable to switch to raw mode")
+    c = read(stdin, Char)
+    ccall(:jl_tty_set_mode, Int32, (Ptr{Cvoid},Int32), stdin.handle, false)
+    c
+end
+
+function menu()
+    println("Press m to go back to the menu!")
+    println("Press q to quit!");
+    while true
+        opt = getc1();
+        if opt == 'm'
+        	println("")
+        	println("")
+            include("menu.jl")
+        elseif opt =='q'
+        	exit()
+        elseif opt == 'c'
+        	println("")
+        	println("")
+
+        	println("$(include("info.TXT"))")
+        elseif opt == 'a'
+        	include("BOT_KLAAR1.jl")
+        else
+            continue
+        end
+    end
+end
+
+
+menu()
